@@ -6,12 +6,15 @@ module.exports = function(sequelize, DataTypes) {
     ttl: DataTypes.DATE,
     OrtuId: DataTypes.INTEGER,
     PetugasId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  Bayi.associate = models => {
+    Bayi.belongsTo(models.OrangTua);
+    Bayi.belongsTo(models.Petugas);
+    Bayi.belongsToMany(models.Vaksin, { through :
+      'BayiVaksin'
+    });
+  };
+
   return Bayi;
 };

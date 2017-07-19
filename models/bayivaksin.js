@@ -4,12 +4,12 @@ module.exports = function(sequelize, DataTypes) {
     BayiId: DataTypes.INTEGER,
     VaksinId: DataTypes.INTEGER,
     sudah: DataTypes.BOOLEAN
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  BayiVaksin.associate = models => {
+    BayiVaksin.belongsTo(models.Bayi);
+    BayiVaksin.belongsTo(models.Vaksin);
+  };
+
   return BayiVaksin;
 };

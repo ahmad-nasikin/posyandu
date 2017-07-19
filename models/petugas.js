@@ -2,12 +2,12 @@
 module.exports = function(sequelize, DataTypes) {
   var Petugas = sequelize.define('Petugas', {
     namapetugas: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  Petugas.associate = models => {
+    Petugas.hasOne(models.User);
+    Petugas.hasMany(models.Bayi);
+  };
+
   return Petugas;
 };

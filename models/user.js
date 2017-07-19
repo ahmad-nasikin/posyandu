@@ -6,12 +6,12 @@ module.exports = function(sequelize, DataTypes) {
     role: DataTypes.STRING,
     Petugasid: DataTypes.INTEGER,
     OrtuId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  User.associate = models => {
+    User.belongsTo(models.Petugas);
+    User.belongsTo(models.Orangtua);
+  };
+
   return User;
 };
