@@ -25,11 +25,12 @@ app.use(bodyParser.urlencoded( {extended : true} ));
 // routing
 const index    = require('./routers/index');
 const parents  = require('./routers/parents');
-// const officers = require('/routers/parents')
+const officers = require('./routers/officers')
 
 
 app.use('/', index)
 app.use('/parents', parents)
+app.use('/officers', officers)
 
 
 
