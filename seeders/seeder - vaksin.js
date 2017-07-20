@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Vaksins' [{
+    return queryInterface.bulkInsert('Vaksins', [{
       namavaksin : 'BCG',
       umurmin : 0,
       createdAt : new Date(),
@@ -42,7 +42,7 @@ module.exports = {
       umurmin : 2,
       createdAt : new Date(),
       updatedAt : new Date()
-    }])
+    }], {})
   },
 
   down: function (queryInterface, Sequelize) {

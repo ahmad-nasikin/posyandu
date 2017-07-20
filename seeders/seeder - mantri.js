@@ -12,16 +12,16 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Petugases', [{
-      namapetugas : 'Rudy Sutanto',
+    return queryInterface.bulkInsert('Mantris', [{
+      namamantri : 'Rudy Sutanto',
       createdAt : new Date(),
       updatedAt : new Date()
     }, {
-      namapetugas : 'Nurlaili Rachmawati',
+      namamantri : 'Nurlaili Rachmawati',
       createdAt : new Date(),
       updatedAt : new Date()
     }, {
-      namapetugas : 'Wawan Setiawan',
+      namamantri : 'Wawan Setiawan',
       createdAt : new Date(),
       updatedAt : new Date()
     }], {})
