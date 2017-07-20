@@ -20,6 +20,9 @@ module.exports = {
       OrtuId: {
         type: Sequelize.INTEGER
       },
+      MantriId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

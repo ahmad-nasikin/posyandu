@@ -4,12 +4,12 @@ module.exports = function(sequelize, DataTypes) {
     username: DataTypes.STRING,
     pass: DataTypes.STRING,
     role: DataTypes.STRING,
-    Petugasid: DataTypes.INTEGER,
+    MantriId: DataTypes.INTEGER,
     OrtuId: DataTypes.INTEGER
   });
 
   User.associate = models => {
-    User.belongsTo(models.Petugas);
+    User.belongsTo(models.Mantri);
     User.belongsTo(models.Orangtua);
   };
 

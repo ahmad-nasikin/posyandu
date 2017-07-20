@@ -1,13 +1,13 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Petugas = sequelize.define('Petugas', {
+  var Mantri = sequelize.define('Mantri', {
     namapetugas: DataTypes.STRING
   });
 
   Petugas.associate = models => {
-    Petugas.hasOne(models.User);
-    Petugas.hasMany(models.Bayi);
+    Mantri.hasOne(models.User);
+    Mantri.hasMany(models.Bayi);
   };
 
-  return Petugas;
+  return Mantri;
 };

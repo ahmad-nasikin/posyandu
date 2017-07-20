@@ -5,12 +5,12 @@ module.exports = function(sequelize, DataTypes) {
     kelamin: DataTypes.STRING,
     ttl: DataTypes.DATEONLY,
     OrtuId: DataTypes.INTEGER,
-    PetugasId: DataTypes.INTEGER
+    MantriId: DataTypes.INTEGER
   });
 
   Bayi.associate = models => {
     Bayi.belongsTo(models.OrangTua);
-    Bayi.belongsTo(models.Petugas);
+    Bayi.belongsTo(models.Mantri);
     Bayi.belongsToMany(models.Vaksin, { through :
       'BayiVaksin'
     });

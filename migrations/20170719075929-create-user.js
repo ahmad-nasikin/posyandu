@@ -17,7 +17,7 @@ module.exports = {
       role: {
         type: Sequelize.STRING
       },
-      Petugasid: {
+      MantriId: {
         type: Sequelize.INTEGER
       },
       OrtuId: {

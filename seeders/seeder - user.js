@@ -16,21 +16,21 @@ module.exports = {
       username : 'rudy',
       pass     : 'sutanto',
       role     : 'Petugas',
-      PetugasId: 1,
+      MantriId: 1,
       createdAt : new Date(),
       updatedAt : new Date()
     }, {
       username : 'nurlaili',
       pass     : 'rachmawati',
       role     : 'Petugas',
-      PetugasId: 2,
+      MantriId: 2,
       createdAt : new Date(),
       updatedAt : new Date()
     }, {
       username : 'wawan',
       pass     : 'setiawan',
       role     : 'Petugas',
-      PetugasId: 3,
+      MantriId: 3,
       createdAt : new Date(),
       updatedAt : new Date()
     }, {
