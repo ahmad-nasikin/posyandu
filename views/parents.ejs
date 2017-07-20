@@ -33,6 +33,9 @@
 
         <% if (!list.Mantri) { %>
           <td> --- </td>
+
+          <td><a class='btn btn-info btn-xs' href="/students/addsubject/<%= list.id %>"><span class="glyphicon glyphicon-plus"></span> Subject</a></td>
+
         <% } else { %>
           <td><%= list.Mantri.namamantri %></td>
         <% } %>
