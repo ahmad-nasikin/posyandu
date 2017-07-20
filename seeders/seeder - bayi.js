@@ -15,7 +15,7 @@ module.exports = {
     return queryInterface.bulkInsert('Bayis', [{
       namabayi : 'Revi Rinanda',
       kelamin : 'Perempuan',
-      ttl : '2014-03-02',
+      ttl : "2014-03-02",
       kelamin : 'Perempuan',
       OrtuId : 1,
       PetugasId : 2,
@@ -40,7 +40,7 @@ module.exports = {
     }, {
       namabayi : 'Muhammad Irfan',
       kelamin : 'Laki-laki',
-      ttl : '2015-27-25',
+      ttl : '2015-07-25',
       OrtuId : 3,
       PetugasId : 2,
       createdAt : new Date(),
