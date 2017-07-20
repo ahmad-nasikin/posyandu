@@ -12,6 +12,19 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.bulkInsert('Petugases', [{
+      namapetugas : 'Rudy Sutanto',
+      createdAt : new Date(),
+      updatedAt : new Date()
+    }, {
+      namapetugas : 'Nurlaili Rachmawati',
+      createdAt : new Date(),
+      updatedAt : new Date()
+    }, {
+      namapetugas : 'Wawan Setiawan',
+      createdAt : new Date(),
+      updatedAt : new Date()
+    }], {})
   },
 
   down: function (queryInterface, Sequelize) {
