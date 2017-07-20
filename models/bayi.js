@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     namabayi: DataTypes.STRING,
     kelamin: DataTypes.STRING,
     ttl: DataTypes.DATEONLY,
-    OrtuId: DataTypes.INTEGER,
+    OrangTuaId: DataTypes.INTEGER,
     MantriId: DataTypes.INTEGER
   });
 
