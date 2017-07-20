@@ -372,7 +372,7 @@ module.exports = {
       sudah    : 1,
       createdAt : new Date(),
       updatedAt : new Date()
-    }])
+    }], {})
   },
 
   down: function (queryInterface, Sequelize) {

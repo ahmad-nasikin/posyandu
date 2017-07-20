@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = models => {
     User.belongsTo(models.Mantri);
-    User.belongsTo(models.Orangtua);
+    User.belongsTo(models.OrangTua);
   };
 
   return User;
