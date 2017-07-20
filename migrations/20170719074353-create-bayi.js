@@ -17,7 +17,7 @@ module.exports = {
       ttl: {
         type: Sequelize.DATEONLY
       },
-      OrtuId: {
+      OrangTuaId: {
         type: Sequelize.INTEGER
       },
       MantriId: {

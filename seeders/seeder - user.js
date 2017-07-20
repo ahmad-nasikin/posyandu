@@ -82,7 +82,7 @@ module.exports = {
       OrtuId   : 7,
       createdAt : new Date(),
       updatedAt : new Date()
-    }])
+    }], {})
   },
 
   down: function (queryInterface, Sequelize) {
