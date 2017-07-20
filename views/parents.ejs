@@ -11,24 +11,31 @@
   <p>Tabel Bayi</p>
   <table class="table table-hover">
     <thead>
+      <a href="/students/addstudent" class="btn btn-primary btn-xs pull-right"><b>+</b> Data Anak Baru </a>
       <tr>
+        <th>No.</th>
         <th>Name</th>
+        <th>Jenis Kelamin</th>
         <th>Tanggal Lahir</th>
+        <th>Petugas</th>
+        <th class="text-center">Detail</th>
       </tr>
     </thead>
     <tbody>
+
+    <% var i = 1 %>
+    <% data.forEach(list => { %>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
+        <td><%= i++ %></td>
+        <td><%= list.namabayi %></td>
+        <td><%= list.kelamin %></td>
+        <td><%= list.ttl %></td>
+        <td><%= list.Mantri.namamantri %></td>
+        <!-- <td><a href="/<%=list.OrangTuaId%>/<%=list.id%>/detail">Detail</a></td> -->
+        <td class="text-center"><a class='btn btn-info btn-xs' href="/students/edit/<%= list.id %>"><span class="glyphicon glyphicon-edit"></span> Detail</a></td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-      </tr>
+    <% }) %>
+
     </tbody>
   </table>
 </div>
