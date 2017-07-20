@@ -24,7 +24,6 @@ app.use(bodyParser.urlencoded( {extended : true} ));
 
 // routing
 const index    = require('./routers/index');
-<<<<<<< HEAD
 const parents  = require('./routers/parents');
 const officers = require('./routers/officers')
 
@@ -32,13 +31,12 @@ const officers = require('./routers/officers')
 app.use('/', index)
 app.use('/parents', parents)
 app.use('/officers', officers)
-=======
+
 // const parents  = require('./routers/parents');
 // const officers = require('/routers/parents')
 
 
 app.use('/', index)
->>>>>>> 04d2cef6cbd5c54727abbcd3b9a53b3ccf580341
 
 
 
