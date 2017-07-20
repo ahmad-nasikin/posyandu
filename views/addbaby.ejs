@@ -1,13 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+  <%- include ./partials/head %>
     <title>Tambah Bayi</title>
   </head>
   <body>
-    <h1>Tambah Bayi</h1>
+    <h1><%= data_ortu.namaortu %></h1>
 
-    
+    <form class="form-horizontal" method="post" action="/parents/<%= data_ortu.id %>/add">
+      <fieldset>
+
+      <!-- Form Name -->
+      <legend>Form Bayi</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nama Orang Tua </label>
+        <div class="col-md-4">
+        <input id="textinput" readonly="readonly" placeholder="<%= data_ortu.namaortu %>" class="form-control input-md" type="text">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nama Bayi *</label>
+        <div class="col-md-4">
+        <input id="textinput" name="namabayi" placeholder="Nama Bayi" class="form-control input-md" type="text">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Jenis kelamin</label>
+        <div class="col-md-4">
+          <select class="" name="kelamin">
+            <option value=""> -- Pilih salah satu -- </option>
+            <option value="Laki-Laki"> Laki-Laki </option>
+            <option value="Perempuan"> Perempuan </option>
+          </select>
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Tanggal Lahir</label>
+        <div class="col-md-4">
+          <input id="date" type="date" min="2010-01-01" max="2020-12-31" name="ttl">
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+
+          <h2>  <div class="col-md-12">
+            <button type="submit" class="btn btn-block btn-primary btn-success">
+              <span class="btn-label"><i class="glyphicon glyphicon-user"></i></span>Submit</button>
+          </h2>
+
+        </div>
+      </div>
+
+      </fieldset>
+    </form>
+
 
   </body>
 </html>

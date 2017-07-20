@@ -32,7 +32,24 @@ router.get('/:ortuid', (req, res) => {
 
 //tambah data baru
 router.get('/:ortuid/add', (req, res) => {
-  res.send('tes')
+  // res.send('tes')
+  db.OrangTua.findById(req.params.ortuid)
+  .then(data_ortu => {
+    console.log(data_ortu);
+    res.render('addbaby', {data_ortu : data_ortu})
+  })
+})
+
+router.post('/:ortuid/add', (req, res) => {
+  db.Bayi.create({
+    namabayi   : req.body.namabayi,
+    kelamin    : req.body.kelamin,
+    OrangTuaId : req.params.ortuid,
+    ttl        : req.body.ttl
+  })
+  .then(() => {
+    res.redirect(`/parents/${req.params.ortuid}`)
+  })
 })
 
 
@@ -47,11 +64,12 @@ router.get('/:ortuid/:bayiid', (req, res) => {
       include : [db.Vaksin]
     })
     .then(data_vaksin => {
-      // console.log(data_vaksin[1]);
+      console.log(data_vaksin);
       res.render('detailbaby', {data_bayi : data_bayi, data_vaksin : data_vaksin})
     })
   })
 })
+
 
 
 

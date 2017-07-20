@@ -30,7 +30,13 @@
         <td><%= list.namabayi %></td>
         <td><%= list.kelamin %></td>
         <td><%= list.ttl %></td>
-        <td><%= list.Mantri.namamantri %></td>
+
+        <% if (!list.Mantri) { %>
+          <td> --- </td>
+        <% } else { %>
+          <td><%= list.Mantri.namamantri %></td>
+        <% } %>
+
         <td class="text-center"><a class='btn btn-info btn-xs' href="/parents/<%= data[0].OrangTua.id %>/<%= list.id %>"><span class="glyphicon glyphicon-edit"></span> Detail</a></td>
       </tr>
     <% }) %>

@@ -7,7 +7,12 @@
   <body>
     <h1><%= data_bayi.namabayi %></h1>
     <h3>Orang Tua : <%= data_bayi.OrangTua.namaortu %></h3>
-    <h3>Petugas : <%= data_bayi.Mantri.namamantri %></h3>
+
+    <% if (!data_bayi.Mantri) { %>
+      <h3> Petugas : --- </h3>
+    <% } else { %>
+      <h3>Petugas : <%= data_bayi.Mantri.namamantri %></h3>
+    <% } %>
 
   <div class="container">
     <table class="table table-hover">
