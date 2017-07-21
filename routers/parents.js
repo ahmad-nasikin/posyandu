@@ -19,7 +19,7 @@ router.get('/:ortuid', (req, res) => {
     data.forEach(data => {
       data.umur = age(data.ttl)
     })
-    console.log(data[0].umur.umur);
+    // console.log(data[0].umur.umur);
     res.render('parents', {data : data})
   })
 })

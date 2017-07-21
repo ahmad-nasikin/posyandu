@@ -1,6 +1,7 @@
 'use strict'
 const router = require('express').Router();
 const db = require('../models');
+const age = require('../helpers/age.js')
 
 // index all officers, view all
 router.get('/', (req, res) => {
@@ -10,6 +11,9 @@ router.get('/', (req, res) => {
     order : [['namabayi', 'ASC']]
   })
   .then(data_bayi => {
+    data_bayi.forEach(data => {
+      data.umur = age(data.ttl)
+    })
     res.render('allbaby', {data_bayi : data_bayi})
   })
 })
@@ -76,7 +80,20 @@ router.get('/:ptid/:bayiid', (req, res) => {
   })
 })
 
-
+router.get('/:ptid/:bayiid/:vakid', (req, res) => {
+  // res.send('aaa')
+  db.BayiVaksin.update({
+    sudah : 1
+  }, {
+    where : {
+      BayiId : req.params.bayiid,
+      VaksinId : req.params.vakid
+    }
+  })
+  .then(() => {
+    res.redirect(`/officers/${req.params.ptid}/${req.params.bayiid}`)
+  })
+})
 
 
 
