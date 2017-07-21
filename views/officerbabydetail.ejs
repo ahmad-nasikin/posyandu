@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include ./partials/head %>
+    <title>Detail <%= data_bayi.namabayi %></title>
+  </head>
+  <body>
+    <h3><%= data_bayi.namabayi %></h3>
+    <h5>Nama Orang Tua : <%= data_bayi.OrangTua.namaortu %></h5>
+    <h5>Nama Petugas : <%= data_bayi.Mantri.namamantri %></h5>
+
+
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Vaksin</th>
+            <th class="text-center">Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% var i = 1 %>
+          <% data_vaksin.forEach(list => { %>
+            <tr>
+              <td><%= i++ %></td>
+              <td><%= list.Vaksin.namavaksin %></td>
+              <% if (list.sudah == 1) { %>
+                <td class="text-center">Sudah</td>
+              <% } else { %>
+                <td class="text-center">Belum</td>
+              <% } %>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+
+  </body>
+</html>

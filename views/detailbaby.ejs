@@ -20,7 +20,7 @@
         <tr>
           <th>No.</th>
           <th>Vaksin</th>
-          <th>Status</th>
+          <th class="text-center">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -31,9 +31,9 @@
           <td><%= i++ %></td>
           <td><%= list.Vaksin.namavaksin %></td>
           <% if (list.sudah == 1) { %>
-            <td>Sudah</td>
+            <td class="text-center">Sudah</td>
           <% } else { %>
-            <td>Belum</td>
+            <td class="text-center">Belum</td>
           <% } %>
         </tr>
       <% }) %>

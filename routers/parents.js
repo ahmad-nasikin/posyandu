@@ -1,17 +1,9 @@
 'use strict'
 const router = require('express').Router();
 const db = require('../models');
+const isivaksin = require('../helpers/isivaksin.js')
+const age = require('../helpers/age.js')
 
-// router.get('/:ortuid', (req, res) => {
-//   db.OrangTua.findById(req.params.ortuid, {
-//     include : db.Bayi,
-//   })
-//   .then(ortubayi => {
-//     // console.log(JSON.stringify(ortubayi));
-//     // console.log(ortubayi.Bayis[1]);
-//     res.render('parents', {ortubayi : ortubayi})
-//   })
-// })
 
 // index orangtua
 // view bayi dan petugas
@@ -24,7 +16,10 @@ router.get('/:ortuid', (req, res) => {
     order : [['id', 'ASC']]
   })
   .then(data => {
-    // console.log(data);
+    data.forEach(data => {
+      data.umur = age(data.ttl)
+    })
+    console.log(data[0].umur.umur);
     res.render('parents', {data : data})
   })
 })
@@ -47,8 +42,17 @@ router.post('/:ortuid/add', (req, res) => {
     OrangTuaId : req.params.ortuid,
     ttl        : req.body.ttl
   })
-  .then(() => {
-    res.redirect(`/parents/${req.params.ortuid}`)
+  .then(data_bayi => {
+    // console.log(data_bayi);
+    db.Vaksin.findAll()
+    .then(data_vaksin => {
+      // console.log(data_vaksin[0].id);
+      let bulkVaksin = isivaksin(data_bayi.id, data_vaksin)
+      db.BayiVaksin.bulkCreate(bulkVaksin)
+      .then(() =>{
+        res.redirect(`/parents/${req.params.ortuid}`)
+      })
+    })
   })
 })
 
@@ -64,7 +68,7 @@ router.get('/:ortuid/:bayiid', (req, res) => {
       include : [db.Vaksin]
     })
     .then(data_vaksin => {
-      console.log(data_vaksin);
+      // console.log(data_vaksin);
       res.render('detailbaby', {data_bayi : data_bayi, data_vaksin : data_vaksin})
     })
   })
