@@ -68,7 +68,9 @@ router.get('/:ortuid/:bayiid', (req, res) => {
       include : [db.Vaksin]
     })
     .then(data_vaksin => {
-      // console.log(data_vaksin);
+      data_bayi.umur = age(data_bayi.ttl)
+      console.log(data_bayi);
+
       res.render('detailbaby', {data_bayi : data_bayi, data_vaksin : data_vaksin})
     })
   })
