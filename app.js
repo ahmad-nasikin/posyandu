@@ -54,10 +54,9 @@ app.use('/', index)
 app.use('/parents', parents)
 app.use('/officers', officers)
 
-// const parents  = require('./routers/parents');
-// const officers = require('/routers/parents')
 
+app.listen(process.env.PORT || 3000)
 
-app.listen(3000, () => {
-  console.log('listening on port 3000...');
-})
+// app.listen(3000, () => {
+//   console.log('listening on port 3000...');
+// })
