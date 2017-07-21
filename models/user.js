@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     pass: DataTypes.STRING,
     role: DataTypes.STRING,
     MantriId: DataTypes.INTEGER,
-    OrtuId: DataTypes.INTEGER
+    OrangTuaId: DataTypes.INTEGER
   });
 
   User.associate = models => {

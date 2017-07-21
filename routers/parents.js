@@ -5,6 +5,18 @@ const isivaksin = require('../helpers/isivaksin.js')
 const age = require('../helpers/age.js')
 
 
+router.use((req,res, next)=>{
+  // console.log(req.session.role);
+  if (req.session.role == undefined) {
+    res.redirect('/');
+  } else if (req.session.role == 'Petugas' || req.session.role == 'Orangtua') {
+    next();
+  } else {
+    res.redirect('/')
+  }
+})
+
+
 // index orangtua
 // view bayi dan petugas
 router.get('/:ortuid', (req, res) => {
