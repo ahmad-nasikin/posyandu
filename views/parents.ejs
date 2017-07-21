@@ -13,11 +13,12 @@
     <thead>
       <a href="/parents/<%= data[0].OrangTua.id %>/add" class="btn btn-primary btn-xs pull-right"><b>+</b> Data Anak Baru </a>
       <tr>
-        <th>No.</th>
-        <th>Name</th>
-        <th>Jenis Kelamin</th>
-        <th>Tanggal Lahir</th>
-        <th>Petugas</th>
+        <th class="text-center">No.</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Jenis Kelamin</th>
+        <th class="text-center">Tanggal Lahir</th>
+        <th class="text-center">Umur</th>
+        <th class="text-center">Petugas</th>
         <th class="text-center">Detail</th>
       </tr>
     </thead>
@@ -29,7 +30,8 @@
         <td><%= i++ %></td>
         <td><%= list.namabayi %></td>
         <td><%= list.kelamin %></td>
-        <td><%= list.umur.umur %></td>
+        <td class="text-center"><%= list.umur.hari + ' - ' + list.umur.bulan + ' - ' + list.umur.tahun %></td>
+        <td class="text-center"><%= list.umur.umur %></td>
 
         <% if (!list.Mantri) { %>
           <td> --- </td>

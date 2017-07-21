@@ -29,6 +29,9 @@ router.get('/:ptid', (req, res) => {
     include : [db.Bayi]
   })
   .then(data_bayi => {
+    data_bayi.Bayis.forEach(data => {
+      data.umur = age(data.ttl)
+    })
     // console.log(data_bayi);
     res.render('officerbaby', {data_bayi : data_bayi})
   })
@@ -66,7 +69,8 @@ router.post('/assign/:bayiid', (req, res) => {
 router.get('/:ptid/:bayiid', (req, res) => {
   db.Bayi.findById(req.params.bayiid, {include : [db.Mantri, db.OrangTua]})
   .then(data_bayi => {
-    // console.log(data_bayi);
+    data_bayi.umur = age(data_bayi.ttl)
+    console.log(data_bayi);
     db.BayiVaksin.findAll({
       where : {
         BayiId : req.params.bayiid

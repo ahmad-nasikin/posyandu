@@ -20,6 +20,7 @@
         <tr>
           <th>No.</th>
           <th>Vaksin</th>
+          <th class="text-center">Usia Anak</th>
           <th class="text-center">Usia Minimal</th>
           <th class="text-center">Status</th>
           <th class="text-center">Keterangan</th>
@@ -32,6 +33,7 @@
         <tr>
           <td><%= i++ %></td>
           <td><%= list.Vaksin.namavaksin %></td>
+          <td class="text-center"><%=  data_bayi.umur.umur %> </td>
           <td class="text-center"><%=  list.Vaksin.umurmin %> bulan</td>
 
           <% if (list.sudah == 1) { %>
@@ -40,11 +42,11 @@
             <td class="text-center">Belum</td>
           <% } %>
 
-          <% if (list.sudah != 1 && list.Vaksin.umurmin > data_bayi.umur.umurBulan) { %>
-            <td class="text-center">Belum Cukup Umur</td>
-            <% } else { %>
-              <td class="text-center"> -- </td>
-              <% } %>
+          <% if (list.sudah != 1 && list.Vaksin.umurmin < data_bayi.umur.umurBulan) { %>
+              <td class="text-center">Belum Cukup Umur</td>
+          <% } else { %>
+            <td class="text-center"> -- </td>
+          <% } %>
         </tr>
 
       <% }) %>

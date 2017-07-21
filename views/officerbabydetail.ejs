@@ -34,7 +34,9 @@
               <% } %>
 
               <td class="text-center">
-                <% if (list.sudah == 0) { %>
+                <% if (list.sudah == 0 && data_bayi.umur.umurBulan < list.Vaksin.umurmin) { %>
+                  Belum Cukup Umur
+                <% } else if (list.sudah == 0){ %>
                   <form action="/officers/<%= data_bayi.Mantri.id %>/<%= data_bayi.id %>/<%= list.Vaksin.id %>">
                     <input type="submit" value="Ganti Status" />
                   </form>
