@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+  <%- include ./partials/head %>
     <title>Detail Bayi</title>
   </head>
   <body>
-    <h1>Detail Bayi</h1>
+    <h1><%= data_bayi.namabayi %></h1>
+    <h3>Orang Tua : <%= data_bayi.OrangTua.namaortu %></h3>
+
+    <% if (!data_bayi.Mantri) { %>
+      <h3> Petugas : --- </h3>
+    <% } else { %>
+      <h3>Petugas : <%= data_bayi.Mantri.namamantri %></h3>
+    <% } %>
+
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Vaksin</th>
+          <th class="text-center">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% var i = 1 %>
+      <% data_vaksin.forEach(list => { %>
+        <tr>
+          <td><%= i++ %></td>
+          <td><%= list.Vaksin.namavaksin %></td>
+          <% if (list.sudah == 1) { %>
+            <td class="text-center">Sudah</td>
+          <% } else { %>
+            <td class="text-center">Belum</td>
+          <% } %>
+        </tr>
+      <% }) %>
+
+      </tbody>
+    </table>
+  </div>
+
   </body>
 </html>

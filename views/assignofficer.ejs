@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <%- include ./partials/head %>
+    <title>Tambah Bayi</title>
+  </head>
+  <body>
+    <h1><%= data_bayi.namabayi %></h1>
+
+    <form class="form-horizontal" method="post" action="/officers/assign/<%= data_bayi.id %>">
+      <fieldset>
+
+      <!-- Form Name -->
+      <legend>Assign Petugas</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nama Bayi </label>
+        <div class="col-md-4">
+        <input id="textinput" readonly="readonly" placeholder="<%= data_bayi.namabayi %>" class="form-control input-md" type="text">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Jenis Kelamin </label>
+        <div class="col-md-4">
+        <input id="textinput" readonly="readonly" placeholder="<%= data_bayi.kelamin %>" class="form-control input-md" type="text">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nama Orang Tua </label>
+        <div class="col-md-4">
+        <input id="textinput" readonly="readonly" placeholder="<%= data_bayi.OrangTua.namaortu %>" class="form-control input-md" type="text">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nama Petugas </label>
+        <div class="col-md-4">
+          <select class="" name="MantriId">
+            <option value=""> -- Pilih salah satu -- </option>
+            <% data_mantri.forEach(list => { %>
+              <option value="<%= list.id %>"> <%= list.namamantri %> </option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+
+          <h2>  <div class="col-md-12">
+            <button type="submit" class="btn btn-block btn-primary btn-success">
+              <span class="btn-label"><i class="glyphicon glyphicon-user"></i></span>Submit</button>
+          </h2>
+
+        </div>
+      </div>
+
+      </fieldset>
+    </form>
+
+
+  </body>
+</html>

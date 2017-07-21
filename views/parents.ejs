@@ -7,11 +7,11 @@
 <body>
 
 <div class="container">
-  <h2>Parents</h2>
-  <p>Tabel Bayi</p>
+  <h3><%= data[0].OrangTua.namaortu %></h3>
+  <h5>Daftar Anak <%= data[0].OrangTua.namaortu %></h5>
   <table class="table table-hover">
     <thead>
-      <a href="/students/addstudent" class="btn btn-primary btn-xs pull-right"><b>+</b> Data Anak Baru </a>
+      <a href="/parents/<%= data[0].OrangTua.id %>/add" class="btn btn-primary btn-xs pull-right"><b>+</b> Data Anak Baru </a>
       <tr>
         <th>No.</th>
         <th>Name</th>
@@ -29,10 +29,15 @@
         <td><%= i++ %></td>
         <td><%= list.namabayi %></td>
         <td><%= list.kelamin %></td>
-        <td><%= list.ttl %></td>
-        <td><%= list.Mantri.namamantri %></td>
-        <!-- <td><a href="/<%=list.OrangTuaId%>/<%=list.id%>/detail">Detail</a></td> -->
-        <td class="text-center"><a class='btn btn-info btn-xs' href="/students/edit/<%= list.id %>"><span class="glyphicon glyphicon-edit"></span> Detail</a></td>
+        <td><%= list.umur.umur %></td>
+
+        <% if (!list.Mantri) { %>
+          <td> --- </td>
+        <% } else { %>
+          <td><%= list.Mantri.namamantri %></td>
+        <% } %>
+
+        <td class="text-center"><a class='btn btn-info btn-xs' href="/parents/<%= data[0].OrangTua.id %>/<%= list.id %>"><span class="glyphicon glyphicon-edit"></span> Detail</a></td>
       </tr>
     <% }) %>
 
